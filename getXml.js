@@ -59,7 +59,7 @@ var debug = false;
 
 //change these as needed
 var user = "pvendevi";
-var pass = "HObbes_12!";
+var pass = "";
 var url = "http://www.uvm.edu/~pvendevi/wp-admin/export.php?download";
 
 //create connector object
