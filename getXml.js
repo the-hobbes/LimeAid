@@ -57,19 +57,24 @@ function XML_Download(url_in)
  	var xmlObject = xmlObject_in;
  	var titleElements;
  	var pubDateElements;
+ 	var categoryElements;
 
  	this.titleElements = xmlObject.getElementsByTagName("title");
  	this.pubDateElements = xmlObject.getElementsByTagName("pubDate");
+	this.categoryElements = xmlObject.getElementsByTagName("category");
 
  	//declare arrays to store titles and pubdates
  	var titleArray = new Array();
  	var datesArray = new Array();
+ 	var catArray = new Array();
 
  	//add elements to the arrays
  	for(i = 0; i < this.titleElements.length; i++)
  	{
  		titleArray.push(this.titleElements[i].childNodes[0].nodeValue);
  		datesArray.push(this.pubDateElements[i].childNodes[0].nodeValue);
+ 		catArray.push(this.categoryElements[i].childNodes[0].nodeValue);
+
  	}
 
  	/**
@@ -91,6 +96,15 @@ function XML_Download(url_in)
  	}
 
  	/**
+ 	 * getCategories
+ 	 * Returns: catArray, the array of parsed xml categories
+ 	 */
+ 	this.getCategories = function()
+ 	{
+ 		return catArray;
+ 	}
+
+ 	/**
  	 * Code to test the contents of the title and publication date variables, and the arrays.
  	 * Used for debugging.
  	 */
@@ -98,18 +112,22 @@ function XML_Download(url_in)
  	{
 		for (i = 0; i < this.titleElements.length; i++)
 		{ 
-			document.write(this.titleElements[i].childNodes[0].nodeValue, " :: ");
-			document.write(this.pubDateElements[i].childNodes[0].nodeValue);
-			document.write("<br />");
+			//document.write(this.titleElements[i].childNodes[0].nodeValue, " :: ");
+			//document.write(this.pubDateElements[i].childNodes[0].nodeValue, " :: ");
+			//document.write(this.categoryElements[i].childNodes[0].nodeValue);
+
+			//document.write("<br />");
 
 			document.write(titleArray[i], " :: ");
-			document.write(datesArray[i]);
+			document.write(datesArray[i], " :: ");
+			document.write(catArray[i]);
+
  			document.write("<br />");	
 		}
 	}
  }
 
-//for debugging
+//do we want to debug?
 var debug = false;
 
 //change this as needed. The location of the xml file.
@@ -121,7 +139,7 @@ var obj_Connector = new XML_Download(url);
 //for debugging
 if (debug == true)
 {
-	objConnector.test();
+	obj_Connector.test();
 }
 
 //call the get_xml function
@@ -129,7 +147,8 @@ xml_Object = obj_Connector.get_xml();
 
 //call the parsing function, and setup the title and date arrays.
 var parse_Object = new ParseXML(xml_Object);
+
 var title_array = parse_Object.getTitles;
 var date_array = parse_Object.getDates;
-
+var cat_array = parse_Object.getCategories;
 

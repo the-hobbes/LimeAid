@@ -1,0 +1,110 @@
+/**
+ * Style.css
+ * Styling for Limeaid page.
+ */
+
+ /* wrapper for all of the content */
+ #wrapper
+ {
+ 	margin: 0px auto;
+ 	width: 1000px;
+ }
+
+ /* header styling */
+#header 
+{
+	top: 0px;
+	left: 0px;
+	background-color: black;
+	height: 100px;
+	width: 100%;
+	margin-bottom: 10px;
+
+	position: relative;
+}
+
+/** %%%%%%%%  xml styling section %%%%%%%% **/
+#leftColumn
+{
+	float: left;
+	border: 1px solid black;
+	width: 400px;
+	height: 500px;
+}
+
+#xmlSelector
+{
+	height: 100px;
+	width: 100%;
+	margin-bottom: 10px;
+
+	border: 1px solid red;
+}
+
+#xmlSort
+{
+	height: 100px;
+	width: 100%;
+	margin-bottom: 10px;
+
+	border: 1px solid red;
+}
+
+#xmlDisplay
+{
+	height: 500px;
+	width: 580px;
+	margin-bottom: 10px;
+
+	top: 120px;
+	float:right;
+
+	border: 1px solid green;
+}
+
+/** %%%%%%%%  assignee styling section %%%%%%%% **/
+#addAssignee
+{
+	height:50px;
+	width: 190px;
+	margin-bottom:10px;
+	margin-right:5px;
+	float:left;
+	border: 1px solid black;
+}
+
+#manageAssignee
+{
+	height:50px;
+	width: 190px;
+	margin-bottom:10px;
+	float:right;
+	border: 1px solid black;
+}
+
+#removeAssignees
+{
+	height:50px;
+	width: 190px;
+	margin-bottom:10px;
+	margin-right:5px;
+	float:left;
+	border: 1px solid black;
+}
+
+#sendEmail
+{
+	height:50px;
+	width: 190px;
+	margin-bottom:10px;
+	float:right;
+	border: 1px solid black;
+}
+
+#currentAssignees
+{
+	width: 100%;
+	height: 150px;
+	float:left;
+	border:1px dashed black;
+}
