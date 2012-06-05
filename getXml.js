@@ -32,6 +32,7 @@ function XML_Download(url_in)
 		xmlhttp.send();
 		xmlDoc = xmlhttp.responseXML; 
 		//alert(xmlDoc);
+		return xmlDoc;
 	 }
 
 	 /**
@@ -54,7 +55,14 @@ var url = "wordpress.2012-06-04.xml";
 var objConnector = new XML_Download(url);
 
 //call the get_xml function
-objConnector.get_xml();
+xmlObject = objConnector.get_xml();
+
+x = xmlObject.getElementsByTagName("title");
+for (i=0;i<x.length;i++)
+{ 
+	document.write(x[i].childNodes[0].nodeValue);
+	document.write("<br />");
+}
 
 //for debugging
 if (debug == true)
