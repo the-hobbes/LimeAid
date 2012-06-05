@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="limeaid" database="MySql" >
+	<comment>Database for use with limeaid blog updating project.</comment>
+	<schema name="limeaid" schemaname="limeaid" defo="y" />
+	<layout name="limeaid" />
+</project>

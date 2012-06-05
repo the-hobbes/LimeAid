@@ -1,3 +1,42 @@
+//do we want to debug?
+var debug = false;
+
+//when the browser has loaded the page full, intitialize
+window.onload = init();
+
+/**
+ * init()
+ * Function used to control calling of the satellite functions and create the necessary objects for the page to work.
+ */
+function init() 
+{
+	//change this as needed. The location of the xml file.
+	var url = "wordpress.2012-06-04.xml";
+
+	//create connector object
+	var obj_Connector = new XML_Download(url);
+
+	//for debugging
+	if (debug == true)
+	{
+		obj_Connector.test();
+	}
+
+	//call the get_xml function
+	xml_Object = obj_Connector.get_xml();
+
+	//call the parsing function, and setup the title and date arrays.
+	var parse_Object = new ParseXML(xml_Object);
+
+	var title_array = parse_Object.getTitles();
+	var date_array = parse_Object.getDates();
+	var cat_array = parse_Object.getCategories();
+
+	//call xml output function to display xml
+	xml_output(title_array, date_array, cat_array);
+}
+
+
 /**
  * XML_Download
  * A class used to create instances of objects which facilitate the automated downloading of XML representing the blog posts of a wordpress site.
@@ -127,28 +166,31 @@ function XML_Download(url_in)
 	}
  }
 
-//do we want to debug?
-var debug = false;
+ /**
+ * xml_output
+ * Function used to format the xml properly and insert it into the div.
+ * Parameters:
+ * 		3 arrays, containing the parsed titles, dates, and categories
+ */
+ function xml_output(title_in, date_in, cat_in)
+ {
+ 	//initialize working local variables
+ 	var titleArray = title_in;
+ 	var dateArray = date_in;
+ 	var catArray = cat_in;
 
-//change this as needed. The location of the xml file.
-var url = "wordpress.2012-06-04.xml";
+ 	//get appropriate div from DOM
+ 	var xmlDisplay_div = document.getElementById("xmlDisplay");
 
-//create connector object
-var obj_Connector = new XML_Download(url);
+ 	alert(xmlDisplay_div); //FOR SOME REASON THIS IS GETTING CALLED BEFORE IT IS CREATED IN THE DOCUMENT.
 
-//for debugging
-if (debug == true)
-{
-	obj_Connector.test();
-}
-
-//call the get_xml function
-xml_Object = obj_Connector.get_xml();
-
-//call the parsing function, and setup the title and date arrays.
-var parse_Object = new ParseXML(xml_Object);
-
-var title_array = parse_Object.getTitles;
-var date_array = parse_Object.getDates;
-var cat_array = parse_Object.getCategories;
-
+ 	//loop through each array and add it to the DOM
+ 	for(var i = 0; i < titleArray.length; i++)
+ 	{
+ 		var item = titleArray[i] + " " + dateArray[i] + " " + catArray[i]; //put all three pieces of information together
+ 		var div = document.createElement("div"); //create a div
+ 		div.setAttribute("class", "xmlItem"); //add the class, "xmlItem" to the div
+ 		div.innterHTML = item; //set the div's contents with innerhtml
+ 		xmlDisplay_div.appendChild(div); //append the fresh div to the xmlDisplay div in the DOM
+ 	}
+ }
