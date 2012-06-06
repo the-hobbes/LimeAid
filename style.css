@@ -15,12 +15,13 @@
 {
 	top: 0px;
 	left: 0px;
-	background-color: black;
+/*	background-color: black; */
 	height: 100px;
 	width: 100%;
 	margin-bottom: 10px;
-
 	position: relative;
+
+	border:1px solid black;
 }
 
 /** %%%%%%%%  xml styling section %%%%%%%% **/
@@ -60,6 +61,8 @@
 	float:right;
 
 	border: 1px solid green;
+
+	overflow: scroll;
 }
 
 .xmlItem
