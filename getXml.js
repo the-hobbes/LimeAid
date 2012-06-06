@@ -1,12 +1,11 @@
 //do we want to debug?
 var debug = false;
 
-//when the browser has loaded the page full, intitialize
-window.onload = init();
-
 /**
  * init()
  * Function used to control calling of the satellite functions and create the necessary objects for the page to work.
+ * Called by window.onload at the bottom of the page, in order for the entire window to have loaded properly at the time of 
+ * execution.
  */
 function init() 
 {
@@ -34,6 +33,9 @@ function init()
 
 	//call xml output function to display xml
 	xml_output(title_array, date_array, cat_array);
+
+	//convert javascript object to php
+	//var json = jsObj2phpObj(title_array);
 }
 
 
@@ -169,8 +171,11 @@ function XML_Download(url_in)
  /**
  * xml_output
  * Function used to format the xml properly and insert it into the div.
+ * Should display the items by date. 
  * Parameters:
  * 		3 arrays, containing the parsed titles, dates, and categories
+
+ TODO: ORDER BY DATE, then you can remove the sorting (less fancy, but simpler) **************************************<-------
  */
  function xml_output(title_in, date_in, cat_in)
  {
@@ -179,10 +184,11 @@ function XML_Download(url_in)
  	var dateArray = date_in;
  	var catArray = cat_in;
 
+ 	var dateObject = new Date(dateArray[0]);
+ 	alert("Date from array: " + dateArray[0] + ", Date from object: " + dateObject);
+
  	//get appropriate div from DOM
  	var xmlDisplay_div = document.getElementById("xmlDisplay");
-
- 	alert(xmlDisplay_div); //FOR SOME REASON THIS IS GETTING CALLED BEFORE IT IS CREATED IN THE DOCUMENT.
 
  	//loop through each array and add it to the DOM
  	for(var i = 0; i < titleArray.length; i++)
@@ -190,7 +196,23 @@ function XML_Download(url_in)
  		var item = titleArray[i] + " " + dateArray[i] + " " + catArray[i]; //put all three pieces of information together
  		var div = document.createElement("div"); //create a div
  		div.setAttribute("class", "xmlItem"); //add the class, "xmlItem" to the div
- 		div.innterHTML = item; //set the div's contents with innerhtml
+ 		div.innerHTML = item; //set the div's contents with innerhtml
  		xmlDisplay_div.appendChild(div); //append the fresh div to the xmlDisplay div in the DOM
  	}
  }
+
+ /**
+  * convertObject
+  * Function to convert javascript object to a php readable object.
+  * requires the object to convert.
+  * Parameters:
+  * 	obj_in, the javascript object to be converted
+  */
+  function convertObject(obj_in)
+  {
+
+  }
+
+
+//when the browser has loaded the page full, intitialize
+window.onload = init;
