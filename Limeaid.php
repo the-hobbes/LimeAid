@@ -38,13 +38,11 @@
 
 				<div id = "addAssignee"><button type="button" onclick="addAssignee_button('addAssignee.php', '255', '250')">Add Assignee to Database</button></div><!-- end addAssignee -->
 				<div id = "manageAssignee"><button type="button" onclick="addAssignee_button('manageAssignee.php', '500', '500')">Manage Assignee</button></div><!-- end manageAssignee -->
-				<div id = "removeAssignees"><button type="button" onclick="addAssignee_button('removeAssignee.php')">Remove Assignee</button></div><!-- end removeAssignees -->
 
 <form action="<? print $_SERVER['PHP_SELF']; ?>" method="post"><!-- Begin form to add posts to an email and send them to assignees -->
-				
-				<div id = "sendEmail">Send Email to Assignees</div><!-- end sendEmail -->
 
 				<div id = "currentAssignees">List of Assignees (check the checkbox to add to email list)</div><!-- end currentAssignees -->
+				<div id = "sendEmail">Send Email to Assignees</div><!-- end sendEmail -->
 			</div><!-- end leftColumn -->
 
 			<div id = "xmlDisplay">
@@ -61,8 +59,8 @@
 				<input type="checkbox" name="post" value="<?php echo $item->get_title();?>" />Add this Post
 				</div>
 				<?php endforeach; ?>
-
 			</div><!-- end xmlDisplay -->
+
 </form><!-- end pagewide form -->
 		</div><!-- end wrapper -->
 	</body>

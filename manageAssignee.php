@@ -135,5 +135,7 @@ if (isset($_POST["deleteAssignee"]))
 			?>
 
 		</div><!-- end assigneeBrowser -->
+
+		<div style="float:right;"><a href="javascript:window.close()">Close Window</a></div><!--end close -->
 	</body>
 </html>

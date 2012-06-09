@@ -113,7 +113,7 @@ a:active {text-decoration:none; color:#000000;}  /* selected link */
 	float:right;
 	border: 1px solid black;
 }
-
+/*
 #removeAssignees
 {
 	height:50px;
@@ -123,13 +123,14 @@ a:active {text-decoration:none; color:#000000;}  /* selected link */
 	float:left;
 	border: 1px solid black;
 }
-
+*/
 #sendEmail
 {
 	height:50px;
 	width: 190px;
 	margin-bottom:10px;
-	float:right;
+	margin-left:100px;
+	float:left;
 	border: 1px solid black;
 }
 
