@@ -29,7 +29,7 @@ class AssigneeRow extends TableRow
 	        $this->firstCell = '<td>' . $this->email . '</td>';
 	        $this->secondCell = '<td>' . $this->firstName . '</td>';
 	        $this->thirdCell = '<td>' . $this->lastName . '</td>';
-	        $this->fourthCell = '<td><input type="checkbox" name="assignee" value="' . $this->email .'" /></td>';
+	        $this->fourthCell = '<td><input type="checkbox" name="assignee_email[]" value="' . $this->email .'" /></td>';
 
 	        //append rows to row variable
 	        $this->row .= $this->firstCell;

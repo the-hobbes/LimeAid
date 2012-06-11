@@ -12,10 +12,28 @@
 	//include sublcass of TableRow for the assingee email list 
 	include("scripts/AssigneeRow.php");
 
-	if (isset($_POST["deleteAssignee"]))
+	/**
+	 * Form handler called by "Email Selected Assignees" button.
+	 * Grabs checked assinees and checked articles, and sends an email to the assignees.
+	 */
+	if (isset($_POST["mailer_form"]))
 	{
-		$email_ID = $_POST["txtEmail"];
-
+		//$_POST["mailer_form"];
+		$checked_boxes = $_POST['assignee_email'];
+		
+		if(empty($checked_boxes))
+		{
+			echo("You didn't select any assignees.");
+		}
+		else
+		{
+			$N = count($checked_boxes);
+			echo("You selected $N assignees(s): ");
+			for($i=0; $i < $N; $i++)
+			{
+				echo($checked_boxes[$i] . " ");
+			}
+		}
 	}
 ?>
 <!doctype html>
@@ -62,9 +80,12 @@
 						closeTableShell();
 					?>
 				</div><!-- end currentAssignees -->
-				
+
 <!-- YOU ARE HERE, trying to add the form submission -->
-				<div id = "sendEmail"><button type="button" onclick="">Email Selected Assignees</button></div><!-- end sendEmail -->
+				<div id = "sendEmail">
+					<input type="submit" value="Email Selected Assignees" name="mailer_form" />
+				</div><!-- end sendEmail -->
+
 			</div><!-- end leftColumn -->
 
 			<div id = "xmlDisplay">
