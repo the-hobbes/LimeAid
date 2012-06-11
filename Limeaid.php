@@ -83,8 +83,8 @@
 				<!-- <div id = "xmlSelector"></div> --><!-- end xmlSelector -->
 				<!-- <div id = "xmlSort"></div> --><!-- end xmlSort -->
 
-				<div id = "addAssignee"><button type="button" onclick="addAssignee_button('addAssignee.php', '255', '250')">Add Assignee to Database</button></div><!-- end addAssignee -->
-				<div id = "manageAssignee"><button type="button" onclick="addAssignee_button('manageAssignee.php', '500', '500')">Manage Assignee</button></div><!-- end manageAssignee -->
+				<div id = "addAssignee"><button class="green" type="button" onclick="addAssignee_button('addAssignee.php', '255', '250')">Add Assignee to Database</button></div><!-- end addAssignee -->
+				<div id = "manageAssignee"><button class="green" type="button" onclick="addAssignee_button('manageAssignee.php', '500', '500')">Manage Assignee</button></div><!-- end manageAssignee -->
 
 <form action="<? print $_SERVER['PHP_SELF']; ?>" method="post"><!-- Begin form to add posts to an email and send them to assignees -->
 
@@ -106,7 +106,7 @@
 
 <!-- YOU ARE HERE, trying to add the form submission -->
 				<div id = "sendEmail">
-					<input class = "button_class" type="submit" value="Email Selected Assignees" name="mailer_form" />
+					<input class = "button_class green" type="submit" value="Email Selected Assignees" name="mailer_form" />
 				</div><!-- end sendEmail -->
 
 			</div><!-- end leftColumn -->

@@ -16,13 +16,6 @@
  	font-family: 'Droid Sans', sans-serif;
  }
 
- /* set global button styling */
- button, .button_class
- {
- 	width: 100%;
- 	height: 100%;
- }
-
 /* hyperlink formatting */
 a:link {text-decoration:none; color:#000000;}      /* unvisited link */
 a:visited {text-decoration:none; color:#000000;}  /* visited link */
@@ -215,4 +208,58 @@ tr.odd
 tbody th, tbody td 
 {
 	padding:5px;
+}
+
+/** %%%%%%%%  sexy button styling section %%%%%%%% **/
+
+
+/* set global button styling */
+ button, .button_class
+ {
+ 	width: 100%;
+ 	height: 100%;
+
+ 	/* pretty-ness */
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	text-shadow: 0 1px 1px rgba(0,0,0,.3);
+	-webkit-border-radius: .5em; 
+	-moz-border-radius: .5em;
+	border-radius: .5em;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+
+ }
+
+.button:hover {
+	text-decoration: none;
+}
+.button:active {
+	position: relative;
+	top: 1px;
+}
+
+/* pretty lime buttons */
+.green {
+	color: #000000; 
+	border: solid 1px #70BA63;
+	background: #f78d1d;
+	background: -webkit-gradient(linear, left top, left bottom, from(#3CFA1A), to(#35D419));
+	background: -moz-linear-gradient(top,  #3CFA1A,  #35D419);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#3CFA1A', endColorstr='#35D419');
+}
+.green:hover {
+	background: #63F420; 
+	background: -webkit-gradient(linear, left top, left bottom, from(#52C23E), to(#54BF1F));
+	background: -moz-linear-gradient(top,  #52C23E,  #54BF1F);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#52C23E', endColorstr='#54BF1F');
+}
+.green:active {
+	color: #000000; 
+	background: -webkit-gradient(linear, left top, left bottom, from(#35D419), to(#3CFA1A));
+	background: -moz-linear-gradient(top,  #35D419,  #3CFA1A);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#35D419', endColorstr='#3CFA1A');
 }
