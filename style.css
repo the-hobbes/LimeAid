@@ -113,17 +113,7 @@ a:active {text-decoration:none; color:#000000;}  /* selected link */
 	float:right;
 	border: 1px solid black;
 }
-/*
-#removeAssignees
-{
-	height:50px;
-	width: 190px;
-	margin-bottom:10px;
-	margin-right:5px;
-	float:left;
-	border: 1px solid black;
-}
-*/
+
 #sendEmail
 {
 	height:50px;
@@ -143,6 +133,13 @@ a:active {text-decoration:none; color:#000000;}  /* selected link */
 
 	overflow: scroll;
 }
+
+#assigneeBrowser
+{
+	width:500px;
+	height:500px;
+	overflow: scroll;
+}
 /** %%%%%%%%  addAssignee page styling section %%%%%%%% **/
 .error
 {
@@ -159,7 +156,7 @@ table
   border-collapse: collapse;
   border: 1px solid #666666;
   font: normal 11px verdana, arial, helvetica, sans-serif;
-  color: #363636;
+  color: #36850F;
   background: #f6f6f6;
   text-align:left;
 
@@ -181,7 +178,7 @@ thead, tfoot
 	background:url(images/tableBg.png) repeat-x;
 	text-align:left;
 	height:30px;
-	color:red;
+	color:#28570D;
 }
 
 thead th, tfoot th 
@@ -251,13 +248,8 @@ tbody th, tbody td
 	background: -moz-linear-gradient(top,  #3CFA1A,  #35D419);
 	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#3CFA1A', endColorstr='#35D419');
 }
-.green:hover {
-	background: #63F420; 
-	background: -webkit-gradient(linear, left top, left bottom, from(#52C23E), to(#54BF1F));
-	background: -moz-linear-gradient(top,  #52C23E,  #54BF1F);
-	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#52C23E', endColorstr='#54BF1F');
-}
-.green:active {
+	
+.green:active, .green:hover {
 	color: #000000; 
 	background: -webkit-gradient(linear, left top, left bottom, from(#35D419), to(#3CFA1A));
 	background: -moz-linear-gradient(top,  #35D419,  #3CFA1A);
