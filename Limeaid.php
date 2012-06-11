@@ -3,14 +3,20 @@
 	include("ParseRss.php");
 	include("setSimplepie.php");
 
-	//get the raw rss of the blog
+	//get the raw rss of the blog, using remote account login (SIMPLEPIE)
 	$raw_rss = getRss("http://blog.uvm.edu/helpline-tech/feed/atom/", "pvendevi", "Yaer0eR0wi3n");
 
-	//parse the raw rss with simplepie
+	//parse the raw rss with simplepie (SIMPLEPIE)
 	$feed = setSimplepie($raw_rss);
 
-	//$update_group = $feed->get_item_tags('http://www.w3.org/2005/Atom', 'updated');
-	//echo gettype($feed
+	//include sublcass of TableRow for the assingee email list 
+	include("scripts/AssigneeRow.php");
+
+	if (isset($_POST["deleteAssignee"]))
+	{
+		$email_ID = $_POST["txtEmail"];
+
+	}
 ?>
 <!doctype html>
 <!-- Limeaid is refreshing, and that's exactly what we want to do to the blogs. -->
@@ -41,8 +47,24 @@
 
 <form action="<? print $_SERVER['PHP_SELF']; ?>" method="post"><!-- Begin form to add posts to an email and send them to assignees -->
 
-				<div id = "currentAssignees">List of Assignees (check the checkbox to add to email list)</div><!-- end currentAssignees -->
-				<div id = "sendEmail">Send Email to Assignees</div><!-- end sendEmail -->
+				<div id = "currentAssignees">
+					<?php
+						//include functions to make tables
+						include("scripts/makeTable.php");
+
+						//retrieve assigness from database
+						$query = getAssignees();
+						//write table shell
+						writeTableShell_modified();
+						//write the rows
+						writeRows_modified($query);
+						//close the table tags
+						closeTableShell();
+					?>
+				</div><!-- end currentAssignees -->
+				
+<!-- YOU ARE HERE, trying to add the form submission -->
+				<div id = "sendEmail"><button type="button" onclick="">Email Selected Assignees</button></div><!-- end sendEmail -->
 			</div><!-- end leftColumn -->
 
 			<div id = "xmlDisplay">

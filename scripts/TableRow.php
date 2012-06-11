@@ -53,10 +53,12 @@ class TableRow
         $this->secondCell = '<td>' . $this->firstName . '</td>';
         $this->thirdCell = '<td>' . $this->lastName . '</td>';
         $this->fourthCell = '
-                                <td><form action="' . $_SERVER['PHP_SELF'] .'" method="post" enctype="multipart/form-data">
-                                    <input type="hidden" value="' .  $this->email .'" name="txtEmail">
-                                    <input type="submit" value="Delete" name="deleteAssignee" />
-                                </form></td>
+                                <td>
+                                    <form action="' . $_SERVER['PHP_SELF'] .'" method="post" enctype="multipart/form-data">
+                                        <input type="hidden" value="' .  $this->email .'" name="txtEmail">
+                                        <input type="submit" value="Delete" name="deleteAssignee" />
+                                    </form>
+                                </td>
                             ';
 
         //append rows to row variable
