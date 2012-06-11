@@ -1,4 +1,6 @@
 <?php 
+	$debug = true;
+
 	require_once('php/simplepie.inc');
 	include("ParseRss.php");
 	include("setSimplepie.php");
@@ -20,20 +22,41 @@
 	{
 		//$_POST["mailer_form"];
 		$checked_boxes = $_POST['assignee_email'];
+		$checked_articles = $_POST['article_checkbox'];
 		
-		if(empty($checked_boxes))
+		//are we debugging?
+		if($debug)
 		{
-			echo("You didn't select any assignees.");
-		}
-		else
-		{
-			$N = count($checked_boxes);
-			echo("You selected $N assignees(s): ");
-			for($i=0; $i < $N; $i++)
+			if(empty($checked_boxes))
 			{
-				echo($checked_boxes[$i] . " ");
+				echo("You didn't select any assignees.");
 			}
-		}
+			else
+			{
+				$N = count($checked_boxes);
+				echo("You selected $N assignees(s): ");
+				for($i=0; $i < $N; $i++)
+				{
+					echo($checked_boxes[$i] . " ");
+				}
+			}
+
+			echo "<p></p>";
+
+			if(empty($checked_articles))
+			{
+				echo("You didn't select any articles.");
+			}
+			else
+			{
+				$N = count($checked_articles);
+				echo("You selected $N article(s): ");
+				for($i=0; $i < $N; $i++)
+				{
+					echo($checked_articles[$i] . " ");
+				}
+			}
+		}//end debug
 	}
 ?>
 <!doctype html>
@@ -83,7 +106,7 @@
 
 <!-- YOU ARE HERE, trying to add the form submission -->
 				<div id = "sendEmail">
-					<input type="submit" value="Email Selected Assignees" name="mailer_form" />
+					<input class = "button_class" type="submit" value="Email Selected Assignees" name="mailer_form" />
 				</div><!-- end sendEmail -->
 
 			</div><!-- end leftColumn -->
@@ -99,7 +122,8 @@
 				<h2><a href="<?php echo $item->get_permalink(); ?>"><?php echo $item->get_title(); ?></a></h2>
 				<p><?php echo $item->get_description(); ?></p>
 				<p><small>Posted on <?php echo $item->get_date('j F Y | g:i a'); ?></small></p>
-				<input type="checkbox" name="post" value="<?php echo $item->get_title();?>" />Add this Post
+				<input type="checkbox" name="article_checkbox[]" value="<?php echo $item->get_title();?>" />Add this Post to the Email
+
 				</div>
 				<?php endforeach; ?>
 			</div><!-- end xmlDisplay -->

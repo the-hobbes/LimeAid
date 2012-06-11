@@ -16,6 +16,13 @@
  	font-family: 'Droid Sans', sans-serif;
  }
 
+ /* set global button styling */
+ button, .button_class
+ {
+ 	width: 100%;
+ 	height: 100%;
+ }
+
 /* hyperlink formatting */
 a:link {text-decoration:none; color:#000000;}      /* unvisited link */
 a:visited {text-decoration:none; color:#000000;}  /* visited link */
