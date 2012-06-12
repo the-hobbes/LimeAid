@@ -150,8 +150,7 @@ function makeEmail($checked_boxes_in, $checked_articles_in)
 		<div id = "wrapper">
 
 			<div id = "header">
-				<h1><?php //echo $feed->get_title(); ?></a></h1>
-				<p><?php //echo $feed->get_description(); ?></p>
+				<img class="logo" src="images/limeaid_logo.png" alt="Logo" />
 			</div><!-- end header -->
 
 			<div id ="leftColumn">
@@ -181,7 +180,7 @@ function makeEmail($checked_boxes_in, $checked_articles_in)
 
 <!-- YOU ARE HERE, trying to add the form submission -->
 				<div id = "sendEmail">
-					<input class = "button_class green" type="submit" value="Email Selected Assignees" name="mailer_form" />
+					<input style="margin-top:10px" class = "button_class green" type="submit" value="Email Selected Assignees" name="mailer_form" />
 				</div><!-- end sendEmail -->
 
 			</div><!-- end leftColumn -->

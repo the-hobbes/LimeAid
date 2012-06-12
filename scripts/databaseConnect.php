@@ -1,4 +1,5 @@
 <?php
+/*include("/usr/local/uvm-inc/limeaid_connect.inc");*/
 
 $connectId = mysql_connect("webdb.uvm.edu","helpline_admin","7iC6BbZhUEwUs9st");
 if (!$connectId)
