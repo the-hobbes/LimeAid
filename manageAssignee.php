@@ -41,9 +41,8 @@ if (isset($_POST["deleteAssignee"]))
 				//begin table writing (kicker)
 				showAssignees();
 			?>
-
+			<p></p>
+			<div style="margin:0px auto;"><a href="javascript:window.close()">Close Window</a></div><!--end close -->
 		</div><!-- end assigneeBrowser -->
-
-		<div style="float:right;"><a href="javascript:window.close()">Close Window</a></div><!--end close -->
 	</body>
 </html>

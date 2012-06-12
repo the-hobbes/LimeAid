@@ -102,7 +102,8 @@ function craftInsert($table_name, $first_in, $last_in, $email_in)
 				</fieldset><!-- end form fieldset-->
 			</form><!-- end form -->
 		</div><!-- end addNew -->
-		<div style="float:right;"><a href="javascript:window.close()">Close Window</a></div><!--end close -->
+        <p></p>
+		<div style="float:left;"><a href="javascript:window.close()">Close Window</a></div><!--end close -->
 		<!-- <p>Add assignee code here</p> -->
 	</body>
 </html>
