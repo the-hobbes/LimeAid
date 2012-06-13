@@ -18,6 +18,10 @@ $raw_rss = getRss("http://blog.uvm.edu/helpline-tech/feed/atom/", "pvendevi", "Y
 $feed = setSimplepie($raw_rss);
 */
 
+/*
+	NOTE: Modified simplepie.inc sort_items method to reverse the order. I tried to subclass it, but that crap didn't work. Oh well.
+*/
+
 // Create a new SimplePie object of the subclass SimplePie_Custom_Sort
 $feed = new SimplePie();
 
