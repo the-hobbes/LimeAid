@@ -1,15 +1,9 @@
 <?php 
+	//debugging?
 	$debug = false;
 
-	require_once('php/simplepie.inc');
-	include("ParseRss.php");
-	include("setSimplepie.php");
-
-	//get the raw rss of the blog, using remote account login (SIMPLEPIE)
-	$raw_rss = getRss("http://blog.uvm.edu/helpline-tech/feed/atom/", "pvendevi", "Yaer0eR0wi3n");
-
-	//parse the raw rss with simplepie (SIMPLEPIE)
-	$feed = setSimplepie($raw_rss);
+	//parse the rss feeds
+	include("scripts/mergeFeeds.php");
 
 	//include sublcass of TableRow for the assingee email list 
 	include("scripts/AssigneeRow.php");
@@ -74,13 +68,13 @@
 				/*
 				Here, we'll loop through all of the items in the feed, and $item represents the current item in the loop.
 				*/
-				foreach ($feed->get_items() as $item):
+				foreach ($feed->get_items() as $item): 
 				?>
 				<div class="xmlItem">
 				<h2><a href="<?php echo $item->get_permalink(); ?>"><?php echo $item->get_title(); ?></a></h2>
 				<p><?php echo $item->get_description(); ?></p>
-				<p><small>Posted on <?php echo $item->get_date('j F Y | g:i a'); ?></small></p>
-				<input type="checkbox" name="article_checkbox[]" value="<?php echo $item->get_title();?>" />Add this Post to the Email
+				<p><small>Posted on <?php echo $item->get_date('j F Y | g:i a'); ?> | Source: <a href="<?php $feed = $item->get_feed(); echo $feed->get_permalink(); ?>"><?php $feed = $item->get_feed(); echo $feed->get_title(); ?></a></small></p>
+				<input type="checkbox" name="article_checkbox[]" value="<?php echo $item->get_title() . 'From the '. $feed->get_title();?>" />Add this Post to the Email
 
 				</div>
 				<?php endforeach; ?>

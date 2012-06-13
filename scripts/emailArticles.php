@@ -105,7 +105,7 @@ function makeEmail($checked_boxes_in, $checked_articles_in)
 		}
 	}
 	$message .= "<p></p>";
-	$message .="<p> If you have any questions, please contact Carol Caldwell-Edmonds, or Travis Bartlett";
+	$message .="<p> Since this is an automated message, if you have any questions, please contact Carol Caldwell-Edmonds, or Travis Bartlett";
 	$message .-"</body></html>";
 	
 	//headers
