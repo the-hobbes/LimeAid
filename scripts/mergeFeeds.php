@@ -7,9 +7,10 @@
 //include necessary scripts
 require_once('php/simplepie.inc');
 //include("scripts/ParseRss.php");
-include("setSimplepie.php");
+//include("scripts/setSimplepie.php");
 
 /*
+//OLD CODE:
 //get the raw rss of the blog, using remote account login (SIMPLEPIE) (PARSERSS.php)
 $raw_rss = getRss("http://blog.uvm.edu/helpline-tech/feed/atom/", "pvendevi", "Yaer0eR0wi3n");
 
@@ -17,9 +18,9 @@ $raw_rss = getRss("http://blog.uvm.edu/helpline-tech/feed/atom/", "pvendevi", "Y
 $feed = setSimplepie($raw_rss);
 */
 
-// Create a new SimplePie object
+// Create a new SimplePie object of the subclass SimplePie_Custom_Sort
 $feed = new SimplePie();
- 
+
 // Instead of only passing in one feed url, we'll pass in an array of two (helpline and helpline-tech)
 $feed->set_feed_url(array(
 	'http://blog.uvm.edu/helpline/feed/atom/',
