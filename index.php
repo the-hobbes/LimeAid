@@ -11,13 +11,28 @@
 	//include form processing that allows emails to be sent
 	include("scripts/emailArticles.php");
 
+	/*
+	foreach ($feed->get_items() as $item):
+
+		//$dateItem = $feed->get_item();   // the first item in feed; do it in loop
+		$dateData = $item->get_item_tags("http://www.w3.org/2005/Atom", "updated");
+		$sub_data = $dateData[0][data];
+		
+		//print_r($data);
+		//print_r($sub_data);
+		//echo "<p></p>"; 
+		echo $sub_data;
+		echo "<p></p>";
+
+	endforeach;
+	*/
 ?>
 <!doctype html>
 <!-- Limeaid is refreshing, and that's exactly what we want to do to the blogs. -->
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Limeaid: Update you Blog</title>
+		<title>Limeaid: Update your Blog</title>
 		<!--<script src = "scripts/jquery-1.7.2.min.js"></script> --> <!-- include jquery-->
 		<!--<script src = "scripts/getXml.js"></script>-->
 		<script src = "scripts/windowPopup.js"></script>
@@ -68,7 +83,8 @@
 				/*
 				Here, we'll loop through all of the items in the feed, and $item represents the current item in the loop.
 				*/
-				foreach ($feed->get_items() as $item): 
+				foreach ($feed->get_items() as $item):
+
 				?>
 				<div class="xmlItem">
 				<h2><a href="<?php echo $item->get_permalink(); ?>"><?php echo $item->get_title(); ?></a></h2>
@@ -81,6 +97,23 @@
 			</div><!-- end xmlDisplay -->
 
 </form><!-- end pagewide form -->
+			<div id ="test">
+				<?php
+					/*
+					foreach ($feed->get_items() as $item)
+					{
+						$item = $feed->get_item(0);   // the first item in feed; do it in loop
+						$data = $item->get_item_tags("http://www.w3.org/2005/Atom", "updated");
+						$sub_data = $data[0][data];
+						
+						//print_r($data);
+						print_r($sub_data);
+						echo "<p></p>";
+
+					}
+					*/
+				?>
+			</div><!-- end test-->
 		</div><!-- end wrapper -->
 	</body>
 </html>

@@ -12731,7 +12731,7 @@ class SimplePie_Core
 	public static function sort_items($a, $b)
 	{
 		//return $a->get_date('U') <= $b->get_date('U');
-		return $a->get_date('U') > $b->get_date('U');
+		return $a->get_date('U') >= $b->get_date('U');
 	}
 
 	public static function merge_items($urls, $start = 0, $end = 0, $limit = 0)

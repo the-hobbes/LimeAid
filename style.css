@@ -195,7 +195,7 @@ caption
 
 thead, tfoot 
 {
-	background:url(images/tableBg.png) repeat-x;
+	/*background:url(images/tableBg.png) repeat-x;*/
 	text-align:left;
 	height:30px;
 	color:#28570D;
