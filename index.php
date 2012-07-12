@@ -71,10 +71,13 @@
 					?>
 				</div><!-- end currentAssignees -->
 
-<!-- YOU ARE HERE, trying to add the form submission -->
 				<div id = "sendEmail">
 					<input style="margin-top:10px" class = "button_class green" type="submit" value="Email Selected Assignees" name="mailer_form" />
 				</div><!-- end sendEmail -->
+
+				<div id = "trackStatus">
+					<a href="trackStatus.php"><input style="margin-top:10px" class = "button_class green" type="submit" value="Track Status"/></a>
+				</div><!-- end trackStatus -->
 
 			</div><!-- end leftColumn -->
 
