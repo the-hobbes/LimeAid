@@ -37,7 +37,7 @@
 		<!--<script src = "scripts/getXml.js"></script>-->
 		<script src = "scripts/windowPopup.js"></script>
 		<link rel = "stylesheet" href = "style.css">
-		<link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
 	</head>
 	<body>
 		<div id = "wrapper">

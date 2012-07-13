@@ -15,9 +15,9 @@
 		<!--<script src = "scripts/getXml.js"></script>-->
 		<script src = "scripts/windowPopup.js"></script>
 		<link rel = "stylesheet" href = "style.css">
-		<link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script><!-- jquery -->
-		<script src="http://www.appelsiini.net/projects/jeditable/jquery.jeditable.js"></script><!-- jeditable -->
+		<script src="https://www.appelsiini.net/projects/jeditable/jquery.jeditable.js"></script><!-- jeditable -->
 
 
 		<script>
