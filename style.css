@@ -290,7 +290,6 @@ tbody th, tbody td
 {
 	margin-top: 10px;
 	padding: 5px;
-	/*border:1px solid red;*/
 }
 
 .tableHeaders
@@ -298,8 +297,8 @@ tbody th, tbody td
 	padding-right:20px;
 }
 
-.edit
+#scrollView
 {
-	/* override the default button for the editable regions */
-
+	height:500px;
+	overflow: scroll;
 }

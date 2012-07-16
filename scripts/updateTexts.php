@@ -8,12 +8,14 @@
 	$id = $_POST["id"];
 	//echo $id . "\n";
 
-	$primaryKey = substr($id, 0, 1); //primary key of row to be changed
-	$field_name = deleteFirstChar($id); //field name of row to be changed
+	$delimeterPosition = strpos($id, "#"); //ue the # sign to indicate where pk ends and field name begins
 
-	function deleteFirstChar($string) 
+	$primaryKey = substr($id, 0, $delimeterPosition); //primary key of row to be changed
+	$field_name = deleteFirstChars($id, $delimeterPosition); //field name of row to be changed
+
+	function deleteFirstChars($string, $position) 
 	{
-		return substr( $string, 1 );
+		return substr( $string, $position + 1 );
 	}
 
 	if($debug)
@@ -25,9 +27,20 @@
 
 	//get the value that has been changed
 	$value = $_POST["value"];
-	
+
+
+	//sanitize inputs
+	$primaryKey = addslashes($primaryKey);
+	$field_name = addslashes($field_name);
+	$value = addslashes($value);
+
+	$primaryKey = htmlentities($primaryKey);
+	$field_name = htmlentities($field_name);
+	$value = htmlentities($value);
+
 	//call function, and pass in relevent information
 	updateSql($primaryKey, $field_name, $value);
+
 
 	/**
 	 * updateSql()

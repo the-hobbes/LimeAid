@@ -17,7 +17,7 @@
 		<link rel = "stylesheet" href = "style.css">
 		<link href='https://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script><!-- jquery -->
-		<script src="https://www.appelsiini.net/projects/jeditable/jquery.jeditable.js"></script><!-- jeditable -->
+		<script src="scripts/jeditable.js"></script><!-- jeditable -->
 
 
 		<script>
@@ -42,12 +42,12 @@
 	<body>
 		<div id = "wrapper">
 			<div id = "header">
-				<img class="logo" src="images/limeaid_logo.png" alt="Logo" />
+				<img class="logo" src="images/limeaid_logo.png" alt="Logo"/>
 			</div><!-- end header -->
 
+<div id="scrollView">
+
 			<div id="tableContent">
-
-
 				<table style="margin-bottom:10px" summary="Table pulled from database">
 					<caption>Article Status</caption>
 					
@@ -71,15 +71,15 @@
 							<td colspan="4"></td>
 						</tr><!-- end column footers -->
 					</tfoot><!-- end footer -->
-					
+
 					<tbody>
 						<?php
 							function retrieveRecords()
 							{
 								//retrieve all records from the progress table
-								$sql = "SELECT * FROM table_progress";
+								$sql = "SELECT * FROM table_progress ORDER BY fld_name";
 								$result = mysql_query($sql) or die ("Unable to retrieve a record from table progess " . mysql_error());
-								
+
 								//create the table rows from the results
 								writeRows($result);
 							}
@@ -111,12 +111,11 @@
 							
 							retrieveRecords();
 						?>
-					</tbody><!-- end table body -->
-
+					</tbody><!-- end table body -->				
 				</table><!--end table-->
-
-
 			</div> <!-- end tableContent -->
+
+</div> <!-- end scrollView -->
 
 		</div><!-- end wrapper -->
 	</body>
