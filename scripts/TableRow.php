@@ -12,6 +12,8 @@ class TableRow
     protected $lastName = "";
     protected $rowNumber="";
     protected $row = ""; //the variable containing all row data
+    protected $manager= "";
+    protected $pk ="";
 
     /**
      * default constructor
@@ -24,8 +26,9 @@ class TableRow
     	$this->firstName = $passRow['fld_firstname'];
     	$this->lastName = $passRow['fld_lastname'];
     	$this->rowNumber = $passRowNumber;
-
-    	if($debug)
+        $this->manager = $passRow['fld_manager'];
+    	
+        if($debug)
 	    	$this->testingFunction();
     }
 
@@ -33,6 +36,7 @@ class TableRow
      * writeData()
      * public function used to first format and then print a table row, using the instance of TableRow class.
      * called from client code. 
+     * used in the manageassignee.php popup
      */
     public function writeData()
     {
@@ -41,6 +45,8 @@ class TableRow
         $secondCell = "";
         $thirdCell = "";
         $fourthCell ="";
+        $fifthCell = "";
+
 
         //open row tag and setup class based on counter remainder (odd or even)
         if((($this->rowNumber) % 2) == 1)
@@ -60,13 +66,16 @@ class TableRow
                                     </form>
                                 </td>
                             ';
+        $this->fifthCell =  '<td id= "'. $this->email .'#fld_manager" class ="edit">' . $this->manager . '</td>';
+        //$this->fifthCell = '<td>' . $this->manager . '</td>';
 
         //append rows to row variable
         $this->row .= $this->firstCell;
         $this->row .= $this->secondCell;
         $this->row .= $this->thirdCell;
         $this->row .= $this->fourthCell;
-
+        $this->row .= $this->fifthCell;
+        
         //close row tag
         $this->row .= "</tr>";
 
@@ -97,6 +106,7 @@ class TableRow
     	echo $this->storyName . "\n";
     	echo $this->hyperlink . "\n";
     	echo $this->rowNumber . "\n";
+        echo $this->manager;
     }
 
     /**

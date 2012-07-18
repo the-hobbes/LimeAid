@@ -1,5 +1,6 @@
 <?php
 	session_start();
+	$_SESSION['managerUpdate'] = FALSE; //set this to false so that updatetexts knows which table to select regarding jeditable updates
 	//connect to db
 	include("scripts/databaseConnect.php");
 	//include table row class

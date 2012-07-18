@@ -52,7 +52,7 @@
 
 			<div id ="leftColumn">
 				<?php 
-					//code to determine if the manage assignees button should be enabled
+					//code to determine if the manage assignee button should be enabled
 					if($_SESSION['manager'] == 1)
 						$buttonType = 'class="green"';					
 					elseif($_SESSION['manager'] == 0) 
@@ -60,7 +60,7 @@
 				?>
 				<!-- addAssignee_button is a function provided by windowpopup to open new windows containing data -->
 				<div id = "addAssignee"><button class="green" type="button" onclick="addAssignee_button('addAssignee.php', '255', '250')">Add Assignee to Database</button></div><!-- end addAssignee -->
-				<div id = "manageAssignee"><button <?php echo $buttonType ?> type="button" onclick="addAssignee_button('manageAssignee.php', '500', '500')">Manage Assignee</button></div><!-- end manageAssignee -->
+				<div id = "manageAssignee"><button <?php echo $buttonType ?> type="button" onclick="addAssignee_button('manageAssignee.php', '510', '520')">Manage Assignee</button></div><!-- end manageAssignee -->
 
 <form action="<? print $_SERVER['PHP_SELF']; ?>" method="post"><!-- Begin form to add posts to an email and send them to assignees -->
 
@@ -68,6 +68,8 @@
 					<?php
 						//include functions to make tables
 						include("scripts/makeTable.php");
+
+						//Note: uses AssigneeRow class to manage the assignees
 
 						//retrieve assigness from database
 						$query = getAssignees();

@@ -75,7 +75,7 @@ function getAssignees()
 
 /**
  * writeTableShell()
- * Function used to create the shell of the table, such as table tags, headings, title, and footer.
+ * Function used to create the shell of the table of the popup manage page, such as table tags, headings, title, and footer.
  */
 function writeTableShell()
 {
@@ -90,6 +90,7 @@ function writeTableShell()
 				<th scope="col">First Name</th>
 				<th scope="col">Last Name</th>
 				<th scope="col">Delete Assignee</th>
+				<th scope="col">Manager Status</th>
 			</tr><!-- End column headers -->
 		</thead><!-- end header -->
 
@@ -97,7 +98,7 @@ function writeTableShell()
 			<tr>
 				<!--<th scope="row">Footer</th>-->
 				<!--<td colspan="2">Footer Data</td>-->
-				<td colspan="4"></td>
+				<td colspan="5"></td>
 			</tr><!-- end column footers -->
 		</tfoot><!-- end footer -->
 
@@ -107,7 +108,7 @@ function writeTableShell()
 
 /**
  * writeTableShell_modified()
- * Function used to create the shell of the table, such as table tags, headings, title, and footer.
+ * Function used to create the shell of the table on the main page, such as table tags, headings, title, and footer.
  * Modified version echoes a different heading for the last row
  */
 function writeTableShell_modified()

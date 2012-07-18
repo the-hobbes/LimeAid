@@ -1,4 +1,6 @@
 <?php
+	session_start();
+
 	//connect to db
 	include("databaseConnect.php");
 
@@ -38,7 +40,7 @@
 	$field_name = htmlentities($field_name);
 	$value = htmlentities($value);
 
-	//call function, and pass in relevent information
+	//call function, and pass in relevent information to update the progress table
 	updateSql($primaryKey, $field_name, $value);
 
 
@@ -49,11 +51,24 @@
 	 */
 	function updateSql($primaryKey, $field_name, $value)
 	{
-		//craft sql
-		$sql = "UPDATE table_progress SET $field_name = '$value' WHERE pk_id = '$primaryKey'";
-		//send sql statement to database
-		mysql_query($sql) or die ("Unable to update the record in the database " . mysql_error());
-
-		echo $value;
+		//select between tables, depending on the session variable which tells which data is to be updated
+		if($_SESSION['managerUpdate'])
+		{
+			//craft sql
+			$sql = "UPDATE table_assignee SET $field_name = '$value' WHERE pk_email = '$primaryKey'";
+			//send sql statement to database
+			mysql_query($sql) or die ("Unable to update the record in the database " . mysql_error());
+			//show it
+			echo $value;
+		}
+		else
+		{
+			//craft sql
+			$sql = "UPDATE table_progress SET $field_name = '$value' WHERE pk_id = '$primaryKey'";
+			//send sql statement to database
+			mysql_query($sql) or die ("Unable to update the record in the database " . mysql_error());
+			//show it
+			echo $value;
+		}
 	}
 ?>

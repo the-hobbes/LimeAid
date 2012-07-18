@@ -1,4 +1,7 @@
 <?php
+session_start();
+$_SESSION['managerUpdate'] = TRUE; //use this session variable to differentiate between different tables in updateTexts.php for jeditable
+
 include("scripts/databaseConnect.php");
 
 //include TableRow parent class
@@ -31,11 +34,33 @@ if (isset($_POST["deleteAssignee"]))
 		<title>Helpline Blog Update Status</title>
 		<link rel = "stylesheet" href = "style.css">
 		<link href='https://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script><!-- jquery -->
+		<script src="scripts/jeditable.js"></script><!-- jeditable -->
+
+
+		<script>
+		/**
+		* document.ready()
+		* using jeditable to edit the database results in place.
+		* essentially treats each region as its own form, then submits to save.php, which performs validations and updates to the database
+		**/
+		$(document).ready(function() 
+		{
+			//note that updateTexts.php handles the updating of the database, according to what is passed into it from jeditable
+			$('.edit').editable('scripts/updateTexts.php', {
+			indicator : 'Saving...',
+			tooltip   : 'Click to edit...',
+			cancel    : 'Cancel',
+			submit    : 'OK',
+			});
+		});
+		</script><!-- end jeditable function -->
 	</head>
 	<body>
 		<div id="assigneeBrowser">
 
 			<?php
+				//uses TableRow class to manage the assignees
 				//include code to write the table containing all of the assignees
 				include("scripts/makeTable.php");
 				//begin table writing (kicker)
