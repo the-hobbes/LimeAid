@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	//connect to db
 	include("scripts/databaseConnect.php");
 	//include table row class
@@ -11,8 +12,6 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Limeaid: Update your Blog</title>
-		<!--<script src = "scripts/jquery-1.7.2.min.js"></script> --> <!-- include jquery-->
-		<!--<script src = "scripts/getXml.js"></script>-->
 		<script src = "scripts/windowPopup.js"></script>
 		<link rel = "stylesheet" href = "style.css">
 		<link href='https://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
@@ -36,13 +35,13 @@
 			submit    : 'OK',
 			});
 		});
-		</script><!-- end jeditable functions -->
+		</script><!-- end jeditable function -->
  
 	</head>
 	<body>
 		<div id = "wrapper">
 			<div id = "header">
-				<img class="logo" src="images/limeaid_logo.png" alt="Logo"/>
+				<a href="https://www.uvm.edu/~helpline/limeaid/index.php"><img class="logo" src="images/limeaid_logo.png" alt="Logo"/></a>
 			</div><!-- end header -->
 
 <div id="scrollView">
@@ -107,8 +106,11 @@
 									//destroy object
 									unset($instance);
 								}
+								//set a session variable to hold the number of records retrieved from the progress table
+								$_SESSION['updateCount'] = $counter;
 							}
-							
+
+							//call the above function
 							retrieveRecords();
 						?>
 					</tbody><!-- end table body -->				
@@ -116,6 +118,15 @@
 			</div> <!-- end tableContent -->
 
 </div> <!-- end scrollView -->
+
+				<?php
+					//display total counts of articles assigned and extant
+					if(isset($_SESSION['postCount']))
+					{
+						echo "<p>" . "Total Blog Article Count: " .$_SESSION['postCount'] . "</p>"; 
+						echo "<p>" . "Total Assigned Articles for Updating: " .$_SESSION['updateCount'] . "</p>";
+					}
+				?>
 
 		</div><!-- end wrapper -->
 	</body>

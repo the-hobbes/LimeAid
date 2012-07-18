@@ -284,6 +284,14 @@ tbody th, tbody td
 	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#35D419', endColorstr='#3CFA1A');
 }
 
+/* disabled button */
+.greenDisabled {
+	color: #000000; 
+	border: solid 1px #70BA63;
+	background: #f78d1d;
+	
+}
+
 /** %%%%%%%%  trackStatus page styling section %%%%%%%% **/
 
 #tableContent

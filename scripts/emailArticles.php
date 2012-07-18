@@ -127,6 +127,9 @@ function makeEmail($checked_boxes_in, $checked_articles_in)
 /**
  * updateDatabase($checked_boxes_in, $checked_articles_in)
  * Function used to add the information of the assignment of the article to the database, specifically in the table_progress.
+ *
+ *	
+ *	NOTE: This function needs to be optimized. 
  */
 function updateDatabase($checked_boxes_in, $checked_articles_in)
 {
