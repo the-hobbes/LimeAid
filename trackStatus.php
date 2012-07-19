@@ -78,20 +78,20 @@ if (isset($_POST["deleteAssignee"]))
 <div id="scrollView">
 
 			<div id="tableContent">
-				<table class="dblclick" style="margin-bottom:10px" summary="Table pulled from database">
+				<table style="margin-bottom:10px" summary="Table pulled from database">
 					<caption>Article Status</caption>
 					
 					<thead>
-						<tr>
-							<th class="tableHeaders" scope="col">Name</th>
-							<th class="tableHeaders" scope="col">Article</th>
-							<th class="tableHeaders" scope="col">Date Assigned</th>
-							<th class="tableHeaders" scope="col">Date Completed</th>
-							<th class="tableHeaders" scope="col">Date Reviewed</th>
-							<th class="tableHeaders" scope="col">Reviewed By</th>
-							<th class="tableHeaders" scope="col">Public</th>
-							<th class="tableHeaders" scope="col">Archived</th>
-							<th class="tableHeaders" scope="col">Delete Record</th>
+						<tr class= "tableRow">
+							<th class="statusTableHeaders" scope="col">Name</th>
+							<th class="statusTableHeaders" scope="col">Article</th>
+							<th class="statusTableHeaders" scope="col">Date Assigned</th>
+							<th class="statusTableHeaders" scope="col">Date Completed</th>
+							<th class="statusTableHeaders" scope="col">Date Reviewed</th>
+							<th class="statusTableHeaders" scope="col">Reviewed By</th>
+							<th class="statusTableHeaders" scope="col">Public</th>
+							<th class="statusTableHeaders" scope="col">Archived</th>
+							<th class="statusTableHeaders" scope="col">Delete Record</th>
 
 						</tr><!-- End column headers -->
 					</thead><!-- end header -->

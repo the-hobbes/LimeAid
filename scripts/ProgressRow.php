@@ -69,9 +69,9 @@ class ProgressRow extends TableRow
 
         //open row tag and setup class based on counter remainder (odd or even)
         if((($this->rowNumber) % 2) == 1)
-            $this->row .= "<tr class = 'odd'>";
+            $this->row .= "<tr class = 'odd' style='height: 80px;'>";
         else
-            $this->row .= "<tr class = 'even'>";
+            $this->row .= "<tr class = 'even' style='height: 80px;'>";
 
         //setup cells
 		$cellName = '<td  id= "'. $this->pk .'#fld_name" class ="edit">' . $this->name . '</td>'; 
