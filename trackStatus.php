@@ -62,13 +62,15 @@ if (isset($_POST["deleteAssignee"]))
 			tooltip   : 'Click to edit...',
 			cancel    : 'Cancel',
 			submit    : 'OK',
+			//style     : 'inherit'
+			style     : 'display: inline'
 			});
 		});
 		</script><!-- end jeditable function -->
  
 	</head>
 	<body>
-		<div id = "wrapper">
+		<div id = "tableWrapper">
 			<div id = "header">
 				<a href="https://www.uvm.edu/~helpline/limeaid/index.php"><img class="logo" src="images/limeaid_logo.png" alt="Logo"/></a>
 			</div><!-- end header -->
@@ -76,7 +78,7 @@ if (isset($_POST["deleteAssignee"]))
 <div id="scrollView">
 
 			<div id="tableContent">
-				<table style="margin-bottom:10px" summary="Table pulled from database">
+				<table class="dblclick" style="margin-bottom:10px" summary="Table pulled from database">
 					<caption>Article Status</caption>
 					
 					<thead>
@@ -159,6 +161,6 @@ if (isset($_POST["deleteAssignee"]))
 					}
 				?>
 
-		</div><!-- end wrapper -->
+		</div><!-- end tableWrapper -->
 	</body>
 </html>

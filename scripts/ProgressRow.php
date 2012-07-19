@@ -74,14 +74,14 @@ class ProgressRow extends TableRow
             $this->row .= "<tr class = 'even'>";
 
         //setup cells
-		$cellName = '<td id= "'. $this->pk .'#fld_name" class ="edit">' . $this->name . '</td>'; 
-		$cellArticle = '<td id= "'. $this->pk .'#fld_articleAssigned" class ="edit">' . $this->articleAssigned . '</td>';            
-		$cellDateAssigned = '<td id= "'. $this->pk .'#fld_dateAssigned" class ="edit">' . $this->dateAssigned . '</td>';
-		$cellDateCompleted = '<td id= "'. $this->pk .'#fld_dateCompleted" class ="edit">' . $this->dateCompleted . '</td>';
-		$cellDateReviewed = '<td id= "'. $this->pk .'#fld_reviewedBy" class ="edit">' . $this->dateReviewed . '</td>';
-		$cellReviewedBy = '<td id= "'. $this->pk .'#fld_dateReviewed" class ="edit">' . $this->reviewedBy . '</td>';
-		$cellPublic = '<td id= "'. $this->pk .'#fld_public" class ="edit">' . $this->public . '</td>';
-		$cellArchived = '<td id= "'. $this->pk .'#fld_archived" class ="edit">' . $this->archived . '</td>';
+		$cellName = '<td  id= "'. $this->pk .'#fld_name" class ="edit">' . $this->name . '</td>'; 
+		$cellArticle = '<td  id= "'. $this->pk .'#fld_articleAssigned" class ="edit">' . $this->articleAssigned . '</td>';            
+		$cellDateAssigned = '<td  id= "'. $this->pk .'#fld_dateAssigned" class ="edit">' . $this->dateAssigned . '</td>';
+		$cellDateCompleted = '<td  id= "'. $this->pk .'#fld_dateCompleted" class ="edit">' . $this->dateCompleted . '</td>';
+		$cellDateReviewed = '<td  id= "'. $this->pk .'#fld_reviewedBy" class ="edit">' . $this->dateReviewed . '</td>';
+		$cellReviewedBy = '<td  id= "'. $this->pk .'#fld_dateReviewed" class ="edit">' . $this->reviewedBy . '</td>';
+		$cellPublic = '<td  id= "'. $this->pk .'#fld_public" class ="edit">' . $this->public . '</td>';
+		$cellArchived = '<td  id= "'. $this->pk .'#fld_archived" class ="edit">' . $this->archived . '</td>';
         $cellDelete =   '
                             <td>
                                 <form action="' . $_SERVER['PHP_SELF'] .'" method="post" enctype="multipart/form-data">

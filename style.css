@@ -300,9 +300,14 @@ tbody th, tbody td
 	padding: 5px;
 }
 
+#tableContent, tr
+{
+	height: 80px;
+}
 .tableHeaders
 {
 	padding-right:20px;
+	width: 75px;
 }
 
 #scrollView
@@ -311,5 +316,8 @@ tbody th, tbody td
 	overflow: scroll;
 }
 
-/** %%%%%%%%  trackStatus page table styling section %%%%%%%% **/
-
+#tableWrapper
+{
+	margin: 0px auto;
+	width: 1000px;
+}
