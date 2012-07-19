@@ -1,6 +1,7 @@
 <?php
 	session_start();
 	$_SESSION['managerUpdate'] = FALSE; //set this to false so that updatetexts knows which table to select regarding jeditable updates
+	
 	//connect to db
 	include("scripts/databaseConnect.php");
 	//include table row class
@@ -19,11 +20,19 @@
  */
 if (isset($_POST["deleteAssignee"]))
 {
-	$row_ID = $_POST["txtRow"];
+	//code to determine if the user should have the power to delete records
+	if($_SESSION['manager'] == 1)
+	{
+		$row_ID = $_POST["txtRow"];
 
-	$removeAssigneeSql = "DELETE FROM table_progress WHERE pk_id = '$row_ID'";
+		$removeAssigneeSql = "DELETE FROM table_progress WHERE pk_id = '$row_ID'";
 
-	mysql_query($removeAssigneeSql) or die('Error, assignee delete failed from table progress: '. mysql_error());
+		mysql_query($removeAssigneeSql) or die('Error, assignee delete failed from table progress: '. mysql_error());
+	}			
+	elseif($_SESSION['manager'] == 0) 
+	{
+		echo '<script type="text/javascript">alert("You do not have permission to perform deletions.");</script>';
+	}
 }
 ?>
 <!doctype html>
