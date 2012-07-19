@@ -6,6 +6,25 @@
 	//include table row class
 	include ("scripts/ProgressRow.php");
 
+/**
+ * if (isset($_POST["deleteAssignee"]))
+ * this handles when a request to delete a record is canceled.
+ * a request of this type is triggered by the delete button in the form.
+ * this form submission retrieves the pk of the deleted value, and used it to expunge the assignee from the database
+ *
+ * takes in a hidden value posted from the table, the primary key of that specific row to be deleted.
+ *
+ * NOTE: 
+ * 		See ProgressRow.php class for the POST variables.
+ */
+if (isset($_POST["deleteAssignee"]))
+{
+	$row_ID = $_POST["txtRow"];
+
+	$removeAssigneeSql = "DELETE FROM table_progress WHERE pk_id = '$row_ID'";
+
+	mysql_query($removeAssigneeSql) or die('Error, assignee delete failed from table progress: '. mysql_error());
+}
 ?>
 <!doctype html>
 <!-- Limeaid is refreshing, and that's exactly what we want to do to the blogs. -->
@@ -60,7 +79,9 @@
 							<th class="tableHeaders" scope="col">Date Reviewed</th>
 							<th class="tableHeaders" scope="col">Reviewed By</th>
 							<th class="tableHeaders" scope="col">Public</th>
-							<th scope="col">Archived</th>
+							<th class="tableHeaders" scope="col">Archived</th>
+							<th class="tableHeaders" scope="col">Delete Record</th>
+
 						</tr><!-- End column headers -->
 					</thead><!-- end header -->
 

@@ -22,9 +22,8 @@ class ProgressRow extends TableRow
     {
     	//initialize properties of the object instance
     	$this->email = $passRow['fk_email'];
+
     /*	$temp_email = $this->email;
-
-
     	//retrieve first and last name corresponding to email in table_assignee
     	$pk_sql = "SELECT * FROM table_assignee WHERE pk_email = '$temp_email'";
 		$pk_result = mysql_query($pk_sql) or die ("Unable to retrieve a record from table assignee " . mysql_error());
@@ -83,6 +82,14 @@ class ProgressRow extends TableRow
 		$cellReviewedBy = '<td id= "'. $this->pk .'#fld_dateReviewed" class ="edit">' . $this->reviewedBy . '</td>';
 		$cellPublic = '<td id= "'. $this->pk .'#fld_public" class ="edit">' . $this->public . '</td>';
 		$cellArchived = '<td id= "'. $this->pk .'#fld_archived" class ="edit">' . $this->archived . '</td>';
+        $cellDelete =   '
+                            <td>
+                                <form action="' . $_SERVER['PHP_SELF'] .'" method="post" enctype="multipart/form-data">
+                                    <input type="hidden" value="' .  $this->pk .'" name="txtRow">
+                                    <input type="submit" value="Delete" name="deleteAssignee" />
+                                </form>
+                            </td>
+                        ';
 
         //append rows to row variable
         $this->row .= $cellName;
@@ -93,6 +100,7 @@ class ProgressRow extends TableRow
         $this->row .= $cellReviewedBy;
         $this->row .= $cellPublic;
         $this->row .= $cellArchived;
+        $this->row .= $cellDelete;
 
         //close row tag
         $this->row .= "</tr>";
